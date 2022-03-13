@@ -37,7 +37,6 @@ public class Shield : MonoBehaviour
         if (startTimer)
         {
             elapsedTime += Time.deltaTime;
-            Debug.Log(elapsedTime);
 
             if (elapsedTime >= SHIELD_TIME)
             {
