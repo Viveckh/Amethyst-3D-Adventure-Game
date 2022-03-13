@@ -13090,25 +13090,45 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 1
+    spatialBlend: 0
     source: {fileID: 0}
   - name: gem-collected
     clip: {fileID: 8300000, guid: e507119dc48e647349c70eda5a67d219, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    spatialBlend: 0
     source: {fileID: 0}
   - name: damage-1
     clip: {fileID: 8300000, guid: f6d86be7fe6a14ec3b68ec4abae8c7bc, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    spatialBlend: 0
     source: {fileID: 0}
   - name: squish
     clip: {fileID: 8300000, guid: ba449f06f8b7d41078848f3ca235257f, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
+    spatialBlend: 0
     source: {fileID: 0}
+  - name: river
+    clip: {fileID: 8300000, guid: 35e573a20e031479285be5583e3602ad, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    spatialBlend: 0.75
+    source: {fileID: 0}
+  - name: warehouse
+    clip: {fileID: 8300000, guid: 763e9fcbe4a804cdd85bbe3051c98e43, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 1
+    spatialBlend: 0.995
+    source: {fileID: 0}
+  riverAudioPoint: {fileID: 1597751908}
+  warehouseAudioPoint: {fileID: 1533824504}
 --- !u!4 &1344488717
 Transform:
   m_ObjectHideFlags: 0
@@ -14781,6 +14801,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3500016057529191995, guid: 73794d632ff80d24f9aab785533e482b, type: 3}
   m_PrefabInstance: {fileID: 1527339588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1533824504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 752540f04d42c864c82cf92823ad6fd1, type: 3}
+  m_PrefabInstance: {fileID: 920021251}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1535784843
 PrefabInstance:
