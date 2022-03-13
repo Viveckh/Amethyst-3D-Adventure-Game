@@ -12,6 +12,7 @@ public class DestroyEnemy : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
+        Debug.Log("we here");
         Destroy(Enemy, 0.25f);
     }
 
