@@ -9,6 +9,7 @@ public class CollectGem : MonoBehaviour
     {
         GameStats.numberOfGemsCollected += 1;
         Destroy(gameObject);
+        FindObjectOfType<AudioManager>().Play("gem-collected");
 
     }
 }

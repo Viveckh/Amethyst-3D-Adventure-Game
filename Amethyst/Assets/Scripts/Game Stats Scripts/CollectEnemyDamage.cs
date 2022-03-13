@@ -9,6 +9,7 @@ public class CollectEnemyDamage : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         GameStats.currentHealth -= 10;
+        FindObjectOfType<AudioManager>().Play("damage-1");
 
     }
 
