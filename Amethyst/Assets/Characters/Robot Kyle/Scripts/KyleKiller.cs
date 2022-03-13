@@ -5,10 +5,9 @@ using UnityEngine.AI;
 
 public class KyleKiller : MonoBehaviour
 {
-
-    
     public Transform target;
     NavMeshAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +20,7 @@ public class KyleKiller : MonoBehaviour
         agent.SetDestination(target.position);
         FaceTarget();
     }
+
     void FaceTarget(){
         Vector3 direction = (target.position- transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
