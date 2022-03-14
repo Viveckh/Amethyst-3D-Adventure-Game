@@ -18,12 +18,17 @@ public class EndGameMenu : MonoBehaviour
             Debug.LogError("canvasGroup Component Not Found!");
         }
 
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 0f;
+        Time.timeScale = 1f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameStats.currentHealth == 0)
+        if (GameStats.currentHealth <= 0)
         {
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
