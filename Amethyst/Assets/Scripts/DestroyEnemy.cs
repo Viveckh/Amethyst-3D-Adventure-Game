@@ -12,7 +12,7 @@ public class DestroyEnemy : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        Debug.Log("we here");
+        FindObjectOfType<AudioManager>().Play("squish");
         Destroy(Enemy, 0.25f);
     }
 
