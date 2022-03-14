@@ -79,6 +79,19 @@ Sujil Maharjan
 
 Arjun Bastola
 
+- Worked on the Game Menu shown at the start and end of the game implemented in `Assets/Scenes/StartOfGame` scene
+- Implemented the health bar, gems collection status and message overlayed on the screen during the game
+- Scripts contributed:
+    - Assets/Scripts/Game Menu Scripts/EndGameMenu.cs : Displays menu when the game is over
+    - Assets/Scripts/Game Menu Scripts/GameCloser.cs : Quits the game
+    - Assets/Scripts/Game Menu Scripts/GameStarter.cs : Loads the Level1 scene
+    - Assets/Scripts/Game Menu Scripts/PauseMenuToggle.cs: Displays/hide pause menu on esc keystroke
+    - Assets/Scripts/Game Stats Scripts/CollectEnemyDamage.cs: Updates health score on damage
+    - Assets/Scripts/Game Stats Scripts/CollectGem.cs: Updates gem score on gem collection
+    - Assets/Scripts/Game Stats Scripts/CollectHealthTokens.cs: Updates health on token collection
+    - Assets/Scripts/Game Stats Scripts/GameStats.cs: Various functions to update game stats
+    - Assets/Scripts/Game Stats Scripts/HealthBar.cs: Updates health bar shown on screen
+
 
 
 SIZE REDUCTION
