@@ -11,5 +11,25 @@ public class CollectGem : MonoBehaviour
         Destroy(gameObject);
         FindObjectOfType<AudioManager>().Play("gem-collected");
 
+        // Disable the marker of collected gem and barriers to the next level
+        if (GameStats.numberOfGemsCollected == 1)
+        {
+            GameObject.Find("gemBeam1").SetActive(false);
+            GameObject.Find("Level2Barrier").SetActive(false);
+        }
+        else if (GameStats.numberOfGemsCollected == 2) {
+            GameObject.Find("gemBeam2").SetActive(false);
+            GameObject.Find("Level3Barrier").SetActive(false);
+        }
+        else if (GameStats.numberOfGemsCollected == 3)
+        {
+            GameObject.Find("gemBeam3").SetActive(false);
+            GameObject.Find("Level4Barrier").SetActive(false);
+        }
+        else if (GameStats.numberOfGemsCollected == 4)
+        {
+            GameObject.Find("gemBeam4").SetActive(false);
+        }
+
     }
 }
