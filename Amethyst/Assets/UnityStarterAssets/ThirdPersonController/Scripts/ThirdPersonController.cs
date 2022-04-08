@@ -91,6 +91,8 @@ namespace StarterAssets
 
 		private bool _hasAnimator;
 
+
+	
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -111,6 +113,7 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
 		}
 
 		private void Update()
@@ -120,8 +123,10 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+
 		}
 
+		
 		private void LateUpdate()
 		{
 			CameraRotation();
