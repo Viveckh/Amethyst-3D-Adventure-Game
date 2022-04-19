@@ -91,7 +91,37 @@ namespace StarterAssets
 
 		private bool _hasAnimator;
 
-
+		public TerrainData mTerrainData;
+		public int alphamapWidth;
+		public int alphamapHeight;
+	
+		public float[,,] mSplatmapData;
+		public int mNumTextures;
+		private void OnTriggerStay(Collider c)
+        {
+            if(c.CompareTag("Trap")){
+                GetComponent<GameStats>().TakeDamage(1);
+				Debug.Log("hit");
+            }
+        }
+        public void GoSlow()
+        {
+            Gravity=-100f;
+            MoveSpeed=1f;
+            SprintSpeed=1f;
+        }
+		public void GoNormal()
+        {
+            Gravity=-50f;
+            MoveSpeed=6f;
+            SprintSpeed=6f;
+        }
+        public void GoFast()
+        {
+            Gravity=-25f;
+            MoveSpeed=11f;
+            SprintSpeed=11f;
+        }
 	
 		private void Awake()
 		{
@@ -101,9 +131,45 @@ namespace StarterAssets
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
 		}
+		private void GetTerrainProps() 
+		{
+			mTerrainData = Terrain.activeTerrain.terrainData;
+			alphamapWidth = mTerrainData.alphamapWidth;
+			alphamapHeight = mTerrainData.alphamapHeight;
+	
+			mSplatmapData = mTerrainData.GetAlphamaps(0, 0, alphamapWidth, alphamapHeight);
+			mNumTextures = mSplatmapData.Length / (alphamapWidth * alphamapHeight);
+		}
+		private Vector3 ConvertToSplatMapCoordinate(Vector3 playerPos)
+		{
+			Vector3 vecRet = new Vector3();
+			Terrain ter = Terrain.activeTerrain;
+			Vector3 terPosition = ter.transform.position;
+			vecRet.x = ((playerPos.x - terPosition.x) / ter.terrainData.size.x) * ter.terrainData.alphamapWidth;
+			vecRet.z = ((playerPos.z - terPosition.z) / ter.terrainData.size.z) * ter.terrainData.alphamapHeight;
+			return vecRet;
+		}
+		int GetActiveTerrainTextureIdx(Vector3 pos)
+		{
+			Vector3 TerrainCord = ConvertToSplatMapCoordinate(pos);
+			int ret = 0;
+			float comp = 0f;
+			for (int i = 0; i < mNumTextures; i++)
+			{
+				if (comp < mSplatmapData[(int)TerrainCord.z, (int)TerrainCord.x, i])
+					ret = i;
+			}
+			return ret;
+		}
+		public int GetTerrainAtPosition(Vector3 pos)
+		{
+			int terrainIdx = GetActiveTerrainTextureIdx(pos);
+			return terrainIdx;
+		}
 
 		private void Start()
 		{
+			GetTerrainProps();
 			_hasAnimator = TryGetComponent(out _animator);
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
@@ -119,7 +185,18 @@ namespace StarterAssets
 		private void Update()
 		{
 			_hasAnimator = TryGetComponent(out _animator);
-			
+			int terrainIdx = GetTerrainAtPosition(this.transform.position);
+			Debug.Log(terrainIdx);
+			if (terrainIdx==2){
+				GoSlow();
+			}
+			else if(terrainIdx==1){
+				GoFast();
+			}
+			else{
+				GoNormal();
+			}
+
 			JumpAndGravity();
 			GroundedCheck();
 			Move();

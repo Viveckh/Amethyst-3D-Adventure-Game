@@ -51,7 +51,7 @@ public class GameStats : MonoBehaviour
 		UpdateGemsNumberAndRender();
 	}
 
-	void TakeDamage(int damage)
+	public void TakeDamage(int damage)
 	{
 		if (currentHealth > 0)
 		{
