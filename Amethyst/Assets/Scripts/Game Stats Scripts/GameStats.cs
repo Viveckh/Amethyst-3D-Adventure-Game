@@ -8,7 +8,7 @@ public class GameStats : MonoBehaviour
 	public static int currentHealth;
 	public static int numberOfGemsCollected;
 
-	public  HealthBar healthBar;
+	public HealthBar healthBar;
 
 	public GameObject[] gems;
 
@@ -57,6 +57,8 @@ public class GameStats : MonoBehaviour
 		{
 			currentHealth -= damage;
 		}
+
+		Debug.Log("Taking damage of " + damage);
 
 		healthBar.SetHealth(currentHealth);
 	}

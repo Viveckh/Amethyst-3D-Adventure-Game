@@ -186,7 +186,6 @@ namespace StarterAssets
 		{
 			_hasAnimator = TryGetComponent(out _animator);
 			int terrainIdx = GetTerrainAtPosition(this.transform.position);
-			Debug.Log(terrainIdx);
 			if (terrainIdx==2){
 				GoSlow();
 			}

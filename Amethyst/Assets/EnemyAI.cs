@@ -7,7 +7,8 @@ public enum AIState
 {
     Patrol,
     Persue,
-    Attack
+    Attack,
+    Dead
 }
 
 public class EnemyAI : MonoBehaviour
@@ -74,8 +75,6 @@ public class EnemyAI : MonoBehaviour
             attack();
         }
 
-
-        
     }
 
     void persueTarget()
