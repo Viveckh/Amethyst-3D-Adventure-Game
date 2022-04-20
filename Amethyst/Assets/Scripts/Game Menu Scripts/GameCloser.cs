@@ -8,7 +8,6 @@ public class GameCloser : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Exiting");
-        
     }
     
 }

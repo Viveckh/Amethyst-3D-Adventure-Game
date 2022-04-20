@@ -11,9 +11,17 @@ public class DestroyEnemy : MonoBehaviour
         Enemy = gameObject.transform.parent.gameObject;
     }
 
+
     void OnTriggerEnter(Collider other){
         FindObjectOfType<AudioManager>().Play("squish");
-        Destroy(Enemy, 0.25f);
+        KyleKiller killer = Enemy.GetComponent<KyleKiller>();
+
+        if (killer != null)
+        {
+            killer.markDead();
+            Destroy(Enemy, 3f);
+
+        }
     }
 
 }

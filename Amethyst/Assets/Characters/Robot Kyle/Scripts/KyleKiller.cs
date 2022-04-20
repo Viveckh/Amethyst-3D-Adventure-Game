@@ -12,13 +12,19 @@ public class KyleKiller : MonoBehaviour
 
     private int currentWaypoint;
 
+    // Attack rate in seconds
+    public float attackRate = 1;
+    private float timeInRange = 0;
+    public int attackDamage = 5;
 
-    public static AIState aiState;
+
+    public AIState aiState;
     private AIState previousState;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+
 
         if (agent == null)
         {
@@ -35,6 +41,8 @@ public class KyleKiller : MonoBehaviour
         // Set the AI state to Patroling to protect the gem.
         aiState = AIState.Patrol;
         previousState = AIState.Patrol;
+
+
     }
 
     // Update is called once per frame
@@ -64,11 +72,13 @@ public class KyleKiller : MonoBehaviour
         if (aiState == AIState.Attack)
         {
             previousState = aiState;
+            timeInRange += Time.deltaTime;
             attack();
         }
-
-
-        
+        else
+        {
+            timeInRange = 0f;
+        }
     }
 
     void persueTarget()
@@ -87,21 +97,32 @@ public class KyleKiller : MonoBehaviour
     {
         agent.SetDestination(targetPoint.transform.position);
         FaceTarget();
-        // Debug.Log("Attacking...");
-        
+
+        if (timeInRange > attackRate)
+        {
+            GameStats gameStats = targetPoint.GetComponent<GameStats>();
+            gameStats.TakeDamage(attackDamage);
+
+            timeInRange = 0f;
+        }
     }
 
     void confirmAIState()
     {
+        if (aiState == AIState.Dead)
+        {
+            return;
+        }
         float distance = Vector3.Distance(agent.transform.position, targetPoint.transform.position);
 
-        //if (aiState == AIState.Persue && agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+        if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+        {
+            aiState = AIState.Attack;
+        }
+        //if (distance < 2f)
         //{
         //    aiState = AIState.Attack;
         //}
-        if (distance > 1f && distance <= 10f ){
-            aiState = AIState.Attack;
-        }
         else if (distance < 20f)
         {
             aiState = AIState.Persue;
@@ -110,6 +131,12 @@ public class KyleKiller : MonoBehaviour
         {
             aiState = AIState.Patrol;
         }
+    }
+
+    public void markDead()
+    {
+        Debug.Log("Marking AI State as dead");
+        aiState = AIState.Dead;
     }
 
     private void setNextWaypoint()

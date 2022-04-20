@@ -9,6 +9,7 @@ public class WalkScript : MonoBehaviour
     private NavMeshAgent agent;
     public float distance;
 
+    private KyleKiller killer;
     public AIState aiState;
 
     private void Awake()
@@ -24,20 +25,16 @@ public class WalkScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        aiState = KyleKiller.aiState;
+        killer = GetComponent<KyleKiller>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        aiState = KyleKiller.aiState;
+        aiState = killer.aiState;
         distance = agent.remainingDistance;
 
-       if (distance <= 1) {
-           anim.SetBool("AtTarget", true);
-           anim.SetBool("Attacking", false);
-       }
-       else if (aiState == AIState.Attack){
+        if (aiState == AIState.Attack){
            anim.SetBool("AtTarget", false);
            anim.SetBool("Attacking", true);
        }
@@ -45,5 +42,11 @@ public class WalkScript : MonoBehaviour
            anim.SetBool("AtTarget", false);
            anim.SetBool("Attacking", false);
        }
+        else if (aiState == AIState.Dead)
+        {
+            anim.SetBool("AtTarget", false);
+            anim.SetBool("Attacking", false);
+            anim.SetBool("Dead", true);
+        }
     }
 }

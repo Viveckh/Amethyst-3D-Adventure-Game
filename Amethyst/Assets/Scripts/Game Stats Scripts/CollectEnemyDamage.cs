@@ -6,11 +6,11 @@ public class CollectEnemyDamage : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    void OnTriggerEnter(Collider other)
-    {
-        GameStats.currentHealth -= 2;
-        FindObjectOfType<AudioManager>().Play("damage-1");
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    GameStats.currentHealth -= 20;
+    //    FindObjectOfType<AudioManager>().Play("damage-1");
 
-    }
+    //}
 
 }
