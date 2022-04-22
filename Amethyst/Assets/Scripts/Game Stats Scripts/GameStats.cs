@@ -32,7 +32,7 @@ public class GameStats : MonoBehaviour
 		// We will replace this with enemy actions
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			TakeDamage(10);
+			//TakeDamage(10);
 		}
 
 		// We will replace this with enemy actions

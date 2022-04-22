@@ -107,18 +107,18 @@ namespace StarterAssets
         public void GoSlow()
         {
             Gravity=-100f;
-            MoveSpeed=1f;
-            SprintSpeed=1f;
+            MoveSpeed=.6f;
+            SprintSpeed=.6f;
         }
 		public void GoNormal()
         {
-            Gravity=-50f;
+            Gravity=-25f;
             MoveSpeed=6f;
             SprintSpeed=6f;
         }
         public void GoFast()
         {
-            Gravity=-25f;
+            Gravity=-10f;
             MoveSpeed=11f;
             SprintSpeed=11f;
         }
