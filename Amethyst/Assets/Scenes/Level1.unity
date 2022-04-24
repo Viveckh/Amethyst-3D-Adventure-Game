@@ -1941,19 +1941,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.26323977
+      value: 0.59978616
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.005974176
+      value: 0.005338412
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.89614534
+      value: 0.8007788
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.005974176
+      value: -0.005338411
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9926,7 +9926,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660227852}
-  m_LocalRotation: {x: 0.0047138394, y: 0.70709103, z: -0.004713839, w: 0.7070911}
+  m_LocalRotation: {x: 0.004713839, y: 0.70709103, z: -0.0047138385, w: 0.70709115}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14957,7 +14957,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095816905}
-  m_LocalRotation: {x: 0.004713839, y: 0.70709103, z: -0.004713839, w: 0.7070911}
+  m_LocalRotation: {x: 0.004713839, y: 0.70709103, z: -0.0047138385, w: 0.70709115}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18333,8 +18333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Capture the four gems spread out through the game. Trace the tall yellow
-    markers to identify their locations
+  m_text: Enjoy the Game!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19935,7 +19934,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574241595}
-  m_LocalRotation: {x: 0.0047138394, y: 0.70709103, z: -0.004713839, w: 0.7070911}
+  m_LocalRotation: {x: 0.0047138385, y: 0.70709103, z: -0.0047138385, w: 0.70709115}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
