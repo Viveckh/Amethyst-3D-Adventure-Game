@@ -33,6 +33,8 @@ Vivek Pandey
 - Project setup
 - Design and development of the entire game terrain, environment, and animations for spinning fan and floating elevators
 - Game Audio
+- Complete Game Trailer
+- Tutorial Mode in Game and Virtual Camera Setups
 - Scripts contributed:
     - Assets/Scripts/Sound.cs: 
         Serializable class that holds the various properties of audio source and audio clips
@@ -46,6 +48,11 @@ Vivek Pandey
         Handles the shortcut keystrokes in the game
     - Assets/Scripts/FanSpinTrigger.cs:
         Controls the playback of a mechanim animation that spins a fan when the player gets close
+    - Assets/Scripts/SubtitleTrack.cs
+    - Assets/Scripts/SubtitleClip.cs
+    - Assets/Scripts/SubtitleTrackMixer.cs
+    - Assets/Scripts/SubtitleBehaviour.cs
+        Extension of Unity Timeline to create subtitle playables to display tutorial messages during tutorial mode
 
 
 Dhruvik Patel
