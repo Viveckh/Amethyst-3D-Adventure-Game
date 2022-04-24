@@ -97,11 +97,15 @@ namespace StarterAssets
 	
 		public float[,,] mSplatmapData;
 		public int mNumTextures;
+
 		private void OnTriggerStay(Collider c)
         {
             if(c.CompareTag("Trap")){
-                GetComponent<GameStats>().TakeDamage(1);
+
+				GetComponent<GameStats>().TakeDamage(1);
 				Debug.Log("hit");
+
+
             }
         }
         public void GoSlow()

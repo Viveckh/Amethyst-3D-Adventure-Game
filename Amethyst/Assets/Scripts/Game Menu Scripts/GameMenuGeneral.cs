@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameMenuGeneral : MonoBehaviour
 {
     public GameObject missionObjectivePanel;
     public GameObject aboutPanel;
+    public GameObject tutorialObject;
 
     public void showObjectives()
     {

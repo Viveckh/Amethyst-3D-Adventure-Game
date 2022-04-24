@@ -8,6 +8,8 @@ public class GameStats : MonoBehaviour
 	public static int currentHealth;
 	public static int numberOfGemsCollected;
 
+	public GameObject gameFinish;
+
 	public HealthBar healthBar;
 
 	public GameObject[] gems;
@@ -38,6 +40,7 @@ public class GameStats : MonoBehaviour
 		// We will replace this with enemy actions
 		if (Input.GetKeyDown(KeyCode.G))
 		{
+			numberOfGemsCollected += 1;
 			UpdateGemsNumberAndRender();
 		}
 
@@ -76,6 +79,10 @@ public class GameStats : MonoBehaviour
 			gems[i].SetActive(true);
 		}
 
+		if (numberOfGemsCollected == 4)
+        {
+			gameFinish.SetActive(true);
+        }
 	}
 
 	public void TakeHeath(int damage)

@@ -115,7 +115,7 @@ public class KyleKiller : MonoBehaviour
         }
         float distance = Vector3.Distance(agent.transform.position, targetPoint.transform.position);
 
-        if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
+        if (distance <= agent.stoppingDistance && !agent.pathPending)
         {
             aiState = AIState.Attack;
         }
