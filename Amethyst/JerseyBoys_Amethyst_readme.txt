@@ -11,19 +11,21 @@ In order to run the project, you can simply run one of the provided builds (Only
 Also, the meta files are made visible in the settings if you decide to launch the project in Unity Game Engine.
 
 - You can navigate around the main player using the left, right, and side arrow keys.
-- As soon as the game starts, you will notice a secondary robot player headed towards you. You can observe the AI implemented here to Follow
-- You will notice yellow spheres (placeholder enemies) that close in on the player and attack when close. If the player runs far away, the spheres leave him alone and patrol their designated area
-- You can kill these yellow enemies by pressing spacebar and jumping on top of them
-- You will also notice red pills that you can collect to boost your health
-- You will notice four beams of yellow light that highlight where the four gems are located which you have to collect
-- For now, the gem located in the forest behind the player is obstacle free and so is the gem located in the rocky mountains to the right
-- The third gem located in the river in front of you is in the middle of the lake, and you have to jump through floating plates to get to it
-- The fourth gem is located on a warehouse at the other end of the game terrain, and you have to pass through a spinning fan to get to it
-- You can hear audio when you collect the gems, get attacked by enemy, kill an enemy. You can also hear spatial audio of flowing water as you get close to the river and of people talking when you get to warehouse
+- As soon as the game starts, you will notice a warehouse at the other end of the game terrain, and you have to pass through a spinning fan to get to it.
+- There will be several enemies in this enclosure that close in on the player and attack when close. If the player runs far away, they will leave him alone and patrol their designated area.
+- You can kill these enemies by pressing spacebar and jumping on top of them.
+- You will notice four beams of yellow light that highlight where the four gems are located which you have to collect.
+- The player will move much faster running on the path than on grass.
+- The first gem will be located in the building in this enclosure. This is the northeast corner of the map.
+- The second gem is in the middle of the lake, and you have to jump through floating plates to get to it. This will be in the southeast corner of the map.
+- On the way to the third gem you will also notice red pills that you can collect to boost your health .
+- The third gem located in the forest has an obstacle course. This will be in the northwest corner of the map.
+- The fourth gem is located in a maze. This will be in the southwest corner of the map
+- You can hear audio when you collect the gems, get attacked by enemy, kill an enemy. You can also hear spatial audio of flowing water as you get close to the river and of people talking when you get to warehouse.
 
 KNOWN PROBLEM AREAS
-- The design of obstacles is not fully complete yet at the moment hence the gems can be captured without much struggle. More intriguing and complex obstacles are in development. 
 - We have noticed some lag and inconvenience in mouse movement to steer player at certain times which needs to be investigated more
+- If pointer is not visible might not be able to click in pause menu
 
 MANIFEST
 Following is a breakdown of the different areas the team members worked in:
@@ -59,6 +61,8 @@ Dhruvik Patel
 
 - Created two colliders on the enemies to detect damage or destroy. If the enemy runs into the player, damage is collected by the player and this is realized by the collider attached to the enemy. Same goes for the destroy collider, which rests on top of the enemy as currently the only way to kill an enemy is to jump on it.
 - Created an Animator for Robot Kyle that controls what animation to play for Robot Kyle using different AIStates defined in KyleKiller.cs and WalkScript.cs. Transitions in animation is defined by two parameters ("AtTarget" and "Attacking").
+- Created warrior, drone, and spider enemy prefabs and added them to first gem area.
+- Added several walkable building to first gem area.
 - Scripts contributed:
     - Assets/Characters/Robot Kyle/Scripts/WalkScript.cs
         This script controls how Robot Kyle behaves by switching its animations up based on the AIStates. If the player is farther away, Robot Kyle would follow waypoints sets in place and thus use the Walk animation (Patrol state). If the player is somewhat closer to Robot Kyle, it would start pursue and would use the walk animation (Purse state). Lastly if Robot Kyle is in the attack state, it would use the run animation to chase the player. Once Robot Kyle catches up to the player, it would play the idle animation as it has reached it waypoint. Two parameters control the switch between the animations ("AtTarget" and "Attacking"). 
@@ -69,8 +73,18 @@ Dhruvik Patel
 
 Adithya Thiruvalluvan
 
-- Created a new enemy character using unity store assets 'Robot Kyle' added components for rigidbody, capsule collider, Nav Mesh Agent, and kylekiller script. Tuned Tranform scale and Nav Mesh Agent fields to make Kyle a large enemy capable of high speeds with slow acceleration and turning direction.
+- Created 10 different trap prefabs adding rigidbodies, mesh colliders, and tagging them as trap. Used these to create a trap obstacle course for the third gem.
+- Modified player object by adding terrain layer detection. Added a capsule collider to detect triggered collisions.
+- Implemented mud terrain layer around the forest preventing player from bypassing obstacle course by slowing them down. 
+- Create a mud prefab to slow player down. Didn't end up using as we found a better solution (terrain layers).
+- Created a new enemy 'Robot Kyle'. Didn't end up using in final.
 - Scripts contributed:
+    - Assets\UnityStarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs
+        Modified script to have trigger logic to detect trap collisions and take damage. Also added logic to detect terrain layers player is on and change movement speed based on certain layers.
+    - Assets/Characters/Robot Kyle/Scripts/Game Stats Scripts/GameStats.cs
+        Minor modification to the TakeDamage method to allow it to be accessible from othe scripts by making it public.
+    - Assets\Mud.cs
+        This script would slow the player down upon a triggered collider collision. Didn't end up using since there was a better solution (terrain layers).
     - Assets/Characters/Robot Kyle/Scripts/KyleKiller.cs
         This script enables Nav Mesh Agent for Robot Kyle to pursue his target while facing in the correct direction. I've included a Facetarget function that uses Quaternion Slerp to naturally rotate Kyle towards the target direction.
 
