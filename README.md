@@ -1,7 +1,9 @@
 <p align="center">
+<!--
   <a href="https://github.com/Viveckh/Amethyst-3D-Adventure-Game">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI8jEV55x-zRLLkCUaPvZMnzd09_PQgdLmY-dRMaMIzUuhxHywwsfixBLpLDNVEe0YZRU&usqp=CAU" width="300px" alt="Amethyst: The Game " />
   </a>
+-->
 </p>
 <p align="center">
 <strong>AMETHYST</strong><i></i>
